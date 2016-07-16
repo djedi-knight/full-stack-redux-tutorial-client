@@ -1,0 +1,24 @@
+{
+  "name": "full-stack-redux-tutorial-client",
+  "version": "1.0.0",
+  "description": "Client-side code for tutorial application based on http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djedi-knight/full-stack-redux-tutorial-client.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djedi-knight/full-stack-redux-tutorial-client/issues"
+  },
+  "homepage": "https://github.com/djedi-knight/full-stack-redux-tutorial-client#readme",
+  "devDependencies": {
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
