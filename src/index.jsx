@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Map} from 'immutable';
 import {Router, Route, hashHistory} from 'react-router';
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
 import io from 'socket.io-client';
 import reducer from './reducer';
@@ -16,10 +17,11 @@ socket.on('state', state =>
   store.dispatch(setState(state))
 );
 
-const createStoreWithMiddleware = applyMiddleware(
-  remoteActionMiddleware(socket)
-)(createStore);
-const store = createStoreWithMiddleware(reducer);
+// Apply middleware/ Redux DevTools extention to the store
+const store = createStore(reducer, Map(), compose(
+  applyMiddleware(remoteActionMiddleware(socket)),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+));
 
 const routes = <Route component={App}>
   <Route path="/results" component={ResultsContainer} />
